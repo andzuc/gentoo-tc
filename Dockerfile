@@ -9,7 +9,3 @@ RUN crossdev --stable \
 	     --target ${TARGET} \
        	     --init-target \
 	     --ov-output /usr/local/portage-crossdev
-RUN crossdev --stable \
-	     --target ${TARGET} \
-	     --portage "-v" \
-       	     --stage4
