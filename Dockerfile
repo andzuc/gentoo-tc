@@ -1,5 +1,7 @@
 FROM andzuc/gentoo-armqemu
+
 ENV TARGET armv6z-hardfloat-linux-gnueabi
+RUN echo "MAKEOPTS='-j `lscpu|grep "Thread(s) per core:"|sed 's/^.*: *\(.*\)$/\1/'`'" >>/etc/portage/make.conf
 
 RUN emerge -v sys-devel/crossdev
 COPY etc etc
