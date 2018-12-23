@@ -1,4 +1,4 @@
-FROM andzuc/gentoo-armqemu
+FROM andzuc/gentoo-stage3amd64
 
 ENV DOCKER_FEATURES="-sandbox -usersandbox"
 ENV DOCKER_TARGET=armv6z-hardfloat-linux-gnueabi
