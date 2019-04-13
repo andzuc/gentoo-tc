@@ -1,7 +1,7 @@
 FROM andzuc/gentoo-stage3amd64
 
 ENV HOST_FEATURES="-sandbox -usersandbox"
-ENV TC_TARGET=armv6z-hardfloat-linux-gnueabi
+ENV TC_TARGET=avr
 
 RUN lscpu
 RUN echo "MAKEOPTS='-j `lscpu|grep "Thread(s) per core:"|sed 's/^.*: *\(.*\)$/\1/'`'" >>/etc/portage/make.conf
