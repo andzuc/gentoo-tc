@@ -18,10 +18,11 @@ RUN time emerge -v \
     sys-devel/crossdev
 
 COPY portage/repos.conf /etc/portage/repos.conf
-RUN mkdir -p /usr/local/portage-crossdev \
-    && chown -R portage:portage /usr/local/portage-crossdev \
-    && crossdev \
-	   --stable \
-	   --target "${TC_TARGET}" \
-	   --init-target \
-	   --ov-output /usr/local/portage-crossdev
+RUN mkdir -p /usr/local/portage-crossdev/{profiles,metadata} \
+    && echo 'crossdev' > /usr/local/portage-crossdev/profiles/repo_name \
+    && echo 'masters = gentoo' > /usr/local/portage-crossdev/metadata/layout.conf \
+    && chown -R portage:portage /usr/local/portage-crossdev
+RUN time crossdev \
+    --stable \
+    --target "${TC_TARGET}" \
+    --ov-output /usr/local/portage-crossdev
