@@ -1,4 +1,4 @@
 #!/bin/bash
 docker run --rm -it \
-       andzuc/gentoo-armbuilder:armv6z-hardfloat-linux-gnueabi \
+       andzuc/gentoo-tc:avr \
        /bin/bash
