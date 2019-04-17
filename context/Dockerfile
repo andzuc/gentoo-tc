@@ -10,12 +10,9 @@ RUN echo "FEATURES='${HOST_FEATURES}'" >>/etc/portage/make.conf
 COPY portage/package.use /etc/portage/package.use
 
 # emerging:
-# - go: used to compile resin-xbuild.go from https://github.com/balena-io-library/armv7hf-debian-qemu
-# - crossdev: to further build the toolchain
 RUN time emerge -v \
-    dev-vcs/git \
-    dev-lang/go \
-    sys-devel/crossdev
+    sys-devel/crossdev \
+    dev-embedded/avrdude
 
 COPY portage/repos.conf /etc/portage/repos.conf
 RUN mkdir -p /usr/local/portage-crossdev/{profiles,metadata} \
